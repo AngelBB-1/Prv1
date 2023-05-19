@@ -18,6 +18,11 @@
     } else {
         echo "Hola " . $nombreM . " " . $apellidoM . ", bona tarda";
     }
+    if ($hora >= 0 && $hora < 12) {
+        echo "Hola " . $nombreM . " " . $apellidoM . ", bon dia";
+    } else {
+        echo "Hola " . $nombreM . " " . $apellidoM . ", bona tarda";
+    }
     ?>
 </body>
 </html>
