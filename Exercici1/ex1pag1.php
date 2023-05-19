@@ -18,6 +18,8 @@
         <td>&nbsp;</td>
         <td><input name="Enviar" type="submit" value="Enviar" /><input name="Borrar" type="reset" value="Borrar" /></td>
         </tr>
+        <!-- hhh-->
+        <div></div>
     </form>
 </body>
 </html>
