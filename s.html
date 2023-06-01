@@ -1,0 +1,288 @@
+<!-- 
+Exercici 1 - 1 punt
+Feu un botó anomenat coloret que canviï de color el botó de blanc a vermell i viceversa cada cop que el premeu. Al mateix temps, ha de cambiar el color del body al contrari. És a dir:
+
+botó: blanc -> click -> vermell -> click -> blanc body: vermell ->click -> blanc -> click -> vermell
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canvi de color</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            background-color: white;
+            transition: background-color 0.3s ease;
+            }
+
+        button {
+            background-color: white;
+            transition: background-color 0.3s ease;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+  <button id="coloret">Coloret</button>
+
+  <script>
+    const button = document.getElementById('coloret');
+    const body = document.body;
+
+    button.addEventListener('click', function() {
+    if (button.style.backgroundColor === 'red') {
+        button.style.backgroundColor = 'white';
+        body.style.backgroundColor = 'red';
+    } else {
+        button.style.backgroundColor = 'red';
+        body.style.backgroundColor = 'white';
+    }
+    });
+  </script>
+</body>
+</html>
+-->
+
+
+
+<!--
+Exercici 2 - 1 punt
+Feu un botó anomenat coloret2 que canviï de color de blanc a vermell i viceversa cada 2 cops que el premeu. botó: blanc -> click -> blanc -> click -> vermell -> click -> vermell -> click -> blanc body: vermell ->click -> vermell -> click -> blanc ->click->blanc->click-> vermell 
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canvi de color 2</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            background-color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button {
+            background-color: white;
+            transition: background-color 0.3s ease;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+  <button id="coloret2">Coloret2</button>
+
+  <script>
+    const button = document.getElementById('coloret2');
+    const body = document.body;
+    let count = 0;
+
+    button.addEventListener('click', function() {
+      count++;
+      if (count % 4 === 0 || count % 4 === 1) {
+        button.style.backgroundColor = 'white';
+        body.style.backgroundColor = 'white';
+      } else {
+        button.style.backgroundColor = 'red';
+        body.style.backgroundColor = 'red';
+      }
+    });
+  </script>
+</body>
+</html>
+-->
+<!--
+Exercici 3 - 1 punt
+Feu un botó anomenat multiplicacio que calculi de la multiplicació del número que indiqueu (amb un input) d'1 a n i el mostri en un div amb l'id resultatMulti (o per console log).
+
+multiplicacio(3) 
+3*2*1  = 6
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplicació</title>
+</head>
+<body>
+  <input type="number" id="inputNumero" placeholder="Introdueix un número">
+  <button id="multiplicacio">Multiplicació</button>
+  <div id="resultatMulti"></div>
+
+  <script>
+    const button = document.getElementById('multiplicacio');
+    const inputNumero = document.getElementById('inputNumero');
+    const resultatDiv = document.getElementById('resultatMulti');
+
+    button.addEventListener('click', function() {
+    const numero = parseInt(inputNumero.value);
+    let multiplicacio = 1;
+
+    for (let i = numero; i >= 1; i--) {
+        multiplicacio *= i;
+    }
+
+    resultatDiv.textContent = `El resultat de la multiplicació és: ${multiplicacio}`;
+    console.log(`El resultat de la multiplicació és: ${multiplicacio}`);
+    });
+
+  </script>
+</body>
+</html>
+-->
+
+
+
+
+
+<!---
+Exercici 4 - 2 punt
+Feu una funció anomenada mitjanaImparells que retorni la mitjana dels elements de les posicions imparelles d'una llista:
+
+Exemple:
+
+[3,5,6,4,7,1]
+(5+4+1)/3 = 3.33333
+
+console.log(mitjanaParells([3,5,6,4,7,1]))
+3.333333333333333
+ 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mitjana Imparells</title>
+  <script>
+    function mitjanaImparells(lista) {
+      var suma = 0;
+      var contador = 0;
+
+      for (var i = 0; i < lista.length; i++) {
+        if (i % 2 !== 0) { // Comprobar si la posición es impar
+          suma += lista[i];
+          contador++;
+        }
+      }
+
+      if (contador === 0) {
+        return 0; // Manejar el caso de una lista vacía o sin posiciones impares
+      }
+
+      var mitjana = suma / contador;
+      return mitjana;
+    }
+
+    function calcularMitjana() {
+      var llista = [3, 5, 6, 4, 7, 1];
+      var mitjana = mitjanaImparells(llista);
+      document.getElementById("resultat").innerHTML = mitjana;
+    }
+  </script>
+</head>
+<body>
+  <button onclick="calcularMitjana()">Calcular Mitjana</button>
+  <div id="resultat"></div>
+</body>
+</html>
+-->
+
+
+
+
+
+<!---
+Exercici 5 - 2 punt
+Feu una funció anomenada inverteix que retorni una versió invertida de la llista que l'hi passes:
+
+console.log(inverteix([1,2,3,4])) [4,3,2,1]
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inverteix</title>
+  <script>
+    function inverteix(llista) {
+      return llista.reverse();
+    }
+
+    function mostrarInversio() {
+      var llista = [1, 2, 3, 4];
+      var inversio = inverteix(llista);
+      document.getElementById("resultat").innerHTML = inversio;
+    }
+  </script>
+</head>
+<body>
+  <button onclick="mostrarInversio()">Mostrar Inversió</button>
+  <div id="resultat"></div>
+</body>
+</html>
+-->
+
+<!--
+Part1 1Punt.
+Omple la funció 'paintAll' de manera que totes les cel·les de la taula es pintin de vermell.
+
+Part2 1Punt.
+Omple la funció 'erase' de manera que totes les cel·les de la taula s'esborrin (es pintin de blanc o d'un altre color de fons).
+
+Part 3 1Punt
+Omple la funció 'paintHalf' de manera que la meitat horitzontal inferior de la taula es quedi pintada.
+ 
+
+</head>
+<body>
+    <table style="width: 10%;" border="1">
+        <tbody>
+            <tr> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> </tr>
+            <tr> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> </tr>
+            <tr> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> </tr>
+            <tr> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> </tr>
+            <tr> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> </tr>
+            <tr> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> </tr>
+        </tbody>
+    </table>
+
+    <button type="button" onclick="paintAll()">paintAll</button>
+    <button type="button" onclick="paintHalf()">paintHalf</button>
+    <button type="button" onclick="erase()">Reset</button>
+
+    <script>
+        let rows = document.querySelector("tbody").children;
+        let matrix = [];
+        for (let i = 0; i < rows.length; i++) {
+            matrix.push(rows[i].children);
+        }
+
+        function paintAll() {
+            for (let i = 0; i < rows.length; i++) {
+                for (let j = 0; j < matrix[i].length; j++) {
+                    matrix[i][j].style.backgroundColor = "red";
+                }
+            }
+        }
+
+        function erase() {
+            for (let i = 0; i < rows.length; i++) {
+                for (let j = 0; j < matrix[i].length; j++) {
+                    matrix[i][j].style.backgroundColor = "white";
+                }
+            }
+        }
+
+        function paintHalf() {
+            erase();
+            for (let i = Math.floor(rows.length / 2); i < rows.length; i++) {
+                for (let j = 0; j < matrix[i].length; j++) {
+                    matrix[i][j].style.backgroundColor = "red";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+-->
