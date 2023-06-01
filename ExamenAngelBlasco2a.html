@@ -1,0 +1,184 @@
+
+<!--
+    Exercici 1 - 2,5 punt
+    Feu un botó anomenat batman que afegeixi "na" a un div cada cop que el premeu.
+
+"" -> click -> "na" -> click -> "nana" -> click -> "nanana"
+******************
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Botó Batman</title>
+</head>
+<body>
+  <div id="divTexto"></div>
+  <button id="botonBatman" onclick="agregarNa();">Batman</button>
+
+  <script>
+    // Obtenim el div y el boto
+    var divTexto = document.getElementById("divTexto");
+    var botonBatman = document.getElementById("botonBatman");
+
+    // Variable count na
+    var contadorNa = 0;
+
+    // Funcio sumatori na
+    function agregarNa() {
+      contadorNa++;
+      var texto = "na".repeat(contadorNa);
+      divTexto.textContent = texto;
+    }
+  </script>
+</body>
+</html>
+-->
+<!--
+************
+    Exercici 2 - 2,5 punt
+Feu un botó anomenat producte que calculi el factorial del número que indiqueu (amb un input) i el mostri en un div amb l'id resultatFactorial.
+
+factorial(2) 
+2 * 1 = 2
+factorial(7)
+7*6*5*4*3*2*1 = 5040
+
+***************
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Factorial</title>
+</head>
+<body>
+  <input type="number" id="numero" placeholder="Escriu numero">
+  <button id="botoProducte" onclick="calcularFactorial();">Producte</button>
+  <div id="resultatFactorial"></div>
+
+  <script>
+    // Variables
+    var inputNumero = document.getElementById("numero");
+    var resultat = document.getElementById("resultatFactorial");
+
+    // Funció  calcular el factorial
+    function calcularFactorial() {
+      var numero = parseInt(inputNumero.value);
+
+      // Verificar si el número es valid
+      if (isNaN(numero) || numero < 0) {
+        resultat.innerHTML = "PNumero no valid";
+        return;
+      }
+
+      var factorial = 1;
+      var formula = "";
+
+      // Calcular el factorial
+      for (var i = numero; i >= 1; i--) {
+        factorial *= i;
+        formula += i + (i > 1 ? "*" : "");
+      }
+
+      resultat.innerHTML = formula + " = " + factorial;
+    }
+  </script>
+</body>
+</html>
+
+-->
+
+<!--
+************************
+  Exercici 3 - 2,5 punt
+Crea un botó que al prémer compti el nombre de vocals que té una paraula que es passa a un input.
+
+Hola --2 vocals Aprovarem -- 4 vocals  
+**************************
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contar vocals</title>
+</head>
+<body>
+  <input type="text" id="paraula" placeholder="Escriu paraula">
+  <button id="contar" onclick="contarVocals();">Contar</button>
+  <div id="resultat"></div>
+
+  <script>
+    // Variables
+    var inputParaula = document.getElementById("paraula");
+    var divResultat = document.getElementById("resultat");
+
+    // Funció contar vocals
+    function contarVocals() {
+      var paraula = inputParaula.value.toLowerCase();
+      var contador = 0;
+
+      // bucle contador 
+      for (var i = 0; i < paraula.length; i++) {
+        var caracter = paraula.charAt(i);
+        if (caracter === "a" || caracter === "e" || caracter === "i" || caracter === "o" || caracter === "u") {
+          contador++;
+        }
+      }
+
+      divResultat.innerHTML = paraula + "-- > " + contador + " vocals";
+    }
+  </script>
+</body>
+</html>
+
+-->
+
+<!--
+****************
+    Exercici 4 - 2,5 punt
+Feu un botó anomenat sumatoriParell que calculi el sumatori del número que indiqueu (amb un input) del 0 a n només dels parells i el mostri en un div amb l'id resultatSumatoriParell.
+
+sumatoriParell(4) 4+2 = 6 sumatoriParell(10) 10+8+6+4+2 = 30
+****************
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sumatori de Numeros Parells</title>
+</head>
+<body>
+  <input type="number" id="numero" placeholder="Escriu numero">
+  <button id="botoSum" onclick="calcularSumatoriParell();">Sumatori Parell</button>
+  <div id="resultatSumatoriParell"></div>
+
+  <script>
+    // Variables
+    var inputNumero = document.getElementById("numero");
+    var divResultat = document.getElementById("resultatSumatoriParell");
+
+    // Funcio calcular sumatori parells
+    function calcularSumatoriParell() {
+      var numero = parseInt(inputNumero.value);
+
+      // Verificar si numero es valid (no nul o inferior a 0)
+      if (isNaN(numero) || numero < 0) {
+        divResultat.innerHTML = "Numero no valid";
+      }
+
+      var sumatori = 0;
+      var formula = "";
+
+      // Calcular sumatori numeros pars
+      for (var i = 0; i <= numero; i += 2) {
+        sumatori += i;
+        formula += i + (i < numero ? "+" : "");
+      }
+
+      divResultat.textContent = formula + " = " + sumatori;
+    }
+  </script>
+</body>
+</html>
+
+-->
+
+
+
