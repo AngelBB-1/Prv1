@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 </head>
 <body>
-    <h1>Consultar Persones amb les seues mascotes</h1>
+    <h1>Consultar Persones amb les fefewewfwefewseues mascotes</h1>
     <?php
     $sql = "SELECT persona.nom, mascota.nommascota, mascota.tipusmascota FROM persona LEFT JOIN mascota ON persona.dni = mascota.idpersona;";
 
